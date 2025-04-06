@@ -32,6 +32,7 @@ pydantic_core==2.33.1
 pymongo==4.11.3
 pyparsing==3.2.3
 pytesseract==0.3.13
+python-multipart
 requests==2.32.3
 requests-oauthlib==2.0.0
 rsa==4.9
