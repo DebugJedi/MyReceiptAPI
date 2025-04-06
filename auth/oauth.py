@@ -13,7 +13,7 @@ def authentical_google_sheets():
     creds = None
 
     if os.path.exists(TOKEN_FILE):
-        cred = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
+        creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
 
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
