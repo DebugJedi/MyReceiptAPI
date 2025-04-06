@@ -75,7 +75,7 @@ async def extract_receipt(file: UploadFile = File(...)):
 
         image_bytes = await file.read()
         image = Image.open(io.BytesIO(image_bytes))
-
+        print(f"Received file: {file.filename}")
         # OCR with pyttesseract
         text = pyract.image_to_string(image)
 
