@@ -42,4 +42,5 @@ typing_extensions==4.13.1
 uritemplate==4.1.1
 urllib3==2.3.0
 uvicorn[gunicorn]>=0.18.0
+uvicorn
 Werkzeug==3.1.3
