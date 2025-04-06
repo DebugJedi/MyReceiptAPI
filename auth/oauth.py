@@ -6,7 +6,7 @@ import os
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
 CREDENTIAL_FILE = "etc/secrets/credential.json"
-TOKEN_FILE = "token.json"
+TOKEN_FILE = "etc/secrets/token.json"
 
 
 def authentical_google_sheets():
