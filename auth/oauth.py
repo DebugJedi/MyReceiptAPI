@@ -5,7 +5,7 @@ import os
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
-CREDENTIAL_FILE = "auth/credential.json"
+CREDENTIAL_FILE = "etc/secrets/credential.json"
 TOKEN_FILE = "token.json"
 
 
