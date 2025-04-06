@@ -5,7 +5,7 @@ import os
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
-CREDENTIAL_FILE = os.getenv("GOOGLE_CREDS_PATH", "credential.json")
+CREDENTIAL_FILE = os.getenv("GOOGLE_CREDS_PATH", "credentials.json")
 TOKEN_FILE = os.getenv("TOKEN_PATH", "token.json")
 
 

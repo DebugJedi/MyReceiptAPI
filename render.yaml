@@ -9,6 +9,6 @@ services:
     autoDeploy: true
     envVars:
       - key: GOOGLE_CREDS_PATH
-        value: etc/secrets/credential.json
+        value: /etc/secrets/credentials.json
       - key: TOKEN_PATH
-        value: etc/secrets/token.json
+        value: /etc/secrets/token.json
