@@ -6,24 +6,16 @@ RUN apt-get update && apt-get install -y \
     libtesseract-dev \
     libleptonica-dev \
     poppler-utils \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Debug print
-RUN echo "==> Checking Tesseract path manually..." && \
-    find / -name tesseract && \
-    which tesseract && \
-    tesseract --version
+RUN echo "👉 Tesseract path: $(which tesseract)" && tesseract --version
 
 
-RUN which tesseract && tesseract --version
 
 # Set the working directory
 WORKDIR /app
 
-RUN which tesseract
-
-RUN echo "✅ Tesseract Path: $(which tesseract)"
 
 # Copy the requirements file and install Python packages
 COPY requirements.txt .
