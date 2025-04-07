@@ -7,6 +7,7 @@ import io
 from fastapi.responses import JSONResponse
 from myFastAPI.google_sheets import write_to_google_sheets
 import re
+import os
 
 print("✅ TESSERACT CMD SET TO:", pyract.pytesseract.tesseract_cmd)
 print("✅ Exists:", os.path.isfile(pyract.pytesseract.tesseract_cmd))
