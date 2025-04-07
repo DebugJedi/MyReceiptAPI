@@ -1,11 +1,10 @@
 services:
   - type: web
     name: receipt-extractor-api
-    env: python
+    env: docker
     plan: free
     region: oregon
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn myFastAPI.main:app --host 0.0.0.0 --port 10000
+    dockerfilePath: ./Dockerfile
     autoDeploy: true
     envVars:
       - key: GOOGLE_CREDS_PATH

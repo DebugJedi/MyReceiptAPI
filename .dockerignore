@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.pyo
+
+# Environment
+.env
+.venv/
+env/
+myenv/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Render Secrets
+auth/credentials.json
+auth/token.json
+
+# Others
+*.log
