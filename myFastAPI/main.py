@@ -8,6 +8,10 @@ from fastapi.responses import JSONResponse
 from myFastAPI.google_sheets import write_to_google_sheets
 import re
 
+print("✅ TESSERACT CMD SET TO:", pyract.pytesseract.tesseract_cmd)
+print("✅ Exists:", os.path.isfile(pyract.pytesseract.tesseract_cmd))
+
+
 app = FastAPI()
 
 class ReceiptData(BaseModel):
