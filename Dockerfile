@@ -9,6 +9,13 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Debug print
+RUN echo "==> Checking Tesseract path manually..." && \
+    find / -name tesseract && \
+    which tesseract && \
+    tesseract --version
+
+
 RUN which tesseract && tesseract --version
 
 # Set the working directory
