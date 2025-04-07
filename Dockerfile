@@ -14,6 +14,7 @@ WORKDIR /app
 
 RUN which tesseract
 
+RUN echo "✅ Tesseract Path: $(which tesseract)"
 
 # Copy the requirements file and install Python packages
 COPY requirements.txt .
