@@ -1,7 +1,7 @@
 from fastapi import FastAPI, UploadFile, File
 from pydantic import BaseModel
 import pytesseract as pyract
-
+import easyocr
 from PIL import Image
 import io
 from fastapi.responses import JSONResponse
@@ -86,7 +86,10 @@ async def extract_receipt(file: UploadFile = File(...)):
         image = Image.open(io.BytesIO(image_bytes))
         print(f"Received file: {file.filename}")
         # OCR with pyttesseract
-        text = pyract.image_to_string(image)
+
+        reader = easyocr.Reader(['en'])
+        # text = pyract.image_to_string(image)
+        text = reader.readtext(image)
 
         # Simple text parsing
         extracted_data = parse_receipt_text(text)
