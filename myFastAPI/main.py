@@ -1,6 +1,7 @@
 from fastapi import FastAPI, UploadFile, File
 from pydantic import BaseModel
 import pytesseract as pyract
+pyract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 from PIL import Image
 import io
 from fastapi.responses import JSONResponse
