@@ -6,8 +6,25 @@ import io
 from fastapi.responses import JSONResponse
 from myFastAPI.google_sheets import write_to_google_sheets
 import re
+import os
+import shutil
+from contextlib import asynccontextmanager
 
-app = FastAPI()
+
+
+# reader = easyocr.Reader(['en'], gpu=False)
+reader = None 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    global reader
+    print("🔄 Loading EasyOCR model.....")
+    reader = easyocr.Reader(["en"], gpu=False)
+    print("✅ EasyOCR model is ready.")
+    yield
+    print("🛑 Shutting down app////")
+
+app = FastAPI(lifespan=lifespan)
+
 
 class ReceiptData(BaseModel):
     store_name: str
@@ -66,24 +83,27 @@ def parse_receipt_text(text: str):
     return data
 
 
+
 @app.post("/extract_receipt/")
 async def extract_receipt(file: UploadFile = File(...)):
+
+
     try:
+
         image_bytes = await file.read()
         image = Image.open(io.BytesIO(image_bytes))
-        print(f"📸 Received file: {file.filename}")
+        print(f"Received file: {file.filename}")
+        # OCR with pyttesseract
 
-        # Lazy load the model
-        print("🧠 Loading EasyOCR model...")
-        reader = easyocr.Reader(["en"], gpu=False)
-        print("✅ OCR model ready. Performing recognition...")
-
+        
+        # text = pyract.image_to_string(image)
         result = reader.readtext(image_bytes, detail=0)
         text = "\n".join(result)
 
+        # Simple text parsing
         extracted_data = parse_receipt_text(text)
-        result = write_to_google_sheets(extracted_data)
 
+        result = write_to_google_sheets(extracted_data)
         return JSONResponse(content={"message": "Data written to Google Sheets successfully.", "result": result})
     
     except Exception as e:
