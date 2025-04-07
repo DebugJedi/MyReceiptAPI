@@ -9,11 +9,6 @@ from myFastAPI.google_sheets import write_to_google_sheets
 import re
 import os
 import shutil
-tess_path = shutil.which("tesseract")
-print(f"✅ TESSERACT CMD SET TO: {tess_path}")
-print(f"✅ Exists: {os.path.exists(tess_path) if tess_path else 'Not found'}")
-
-pyract.pytesseract.tesseract_cmd = tess_path if tess_path else "/usr/bin/tesseract"
 
 
 app = FastAPI()
