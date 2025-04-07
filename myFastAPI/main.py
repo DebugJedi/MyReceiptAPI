@@ -1,6 +1,5 @@
 from fastapi import FastAPI, UploadFile, File
 from pydantic import BaseModel
-import pytesseract as pyract
 import easyocr
 from PIL import Image
 import io
