@@ -1,4 +1,5 @@
-FROM python:3.11
+FROM python@sha256:c4c4ded064fdc28eab54fe119a0778c8a7915fc5b713497ff4cc5fdcab0dacaa
+
 
 # Set working directory
 WORKDIR /app
